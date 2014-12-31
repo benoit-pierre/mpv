@@ -401,6 +401,11 @@ static int control(struct vo *vo, uint32_t request, void *data)
     case VOCTRL_GET_VSYNC_TIMED:
         *(bool *)data = p->renderer_opts->smoothmotion;
         return VO_TRUE;
+    case VOCTRL_RESET:
+        mpgl_lock(p->glctx);
+        gl_video_reset(p->renderer);
+        mpgl_unlock(p->glctx);
+        return true;
     }
 
     mpgl_lock(p->glctx);

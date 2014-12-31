@@ -2482,6 +2482,14 @@ void gl_video_unset_gl_state(struct gl_video *p)
     }
 }
 
+void gl_video_reset(struct gl_video *p)
+{
+    for (int i = 0; i < FBOSURFACES_MAX; i++) {
+        p->surfaces[i].pts = 0;
+    }
+    p->surface_num = 0;
+}
+
 // dest = src.<w> (always using 4 components)
 static void packed_fmt_swizzle(char w[5], const struct fmt_entry *texfmt,
                                const struct packed_fmt_entry *fmt)

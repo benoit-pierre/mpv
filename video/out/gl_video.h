@@ -83,6 +83,7 @@ void gl_video_resize_redraw(struct gl_video *p, int w, int h);
 
 void gl_video_set_gl_state(struct gl_video *p);
 void gl_video_unset_gl_state(struct gl_video *p);
+void gl_video_reset(struct gl_video *p);
 
 struct gl_hwdec;
 void gl_video_set_hwdec(struct gl_video *p, struct gl_hwdec *hwdec);
